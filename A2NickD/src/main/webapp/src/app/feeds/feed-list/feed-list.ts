@@ -3,14 +3,29 @@ import { Feed } from '../feed';
 import { FeedsService } from '../feeds-service';
 
 @Component({
-  selector: 'app-feed-list',
-  imports: [],
-  templateUrl: './feed-list.html',
-  styleUrl: './feed-list.css',
+	selector: 'app-feed-list',
+	imports: [],
+	templateUrl: './feed-list.html',
+	styleUrl: './feed-list.css',
 })
 export class FeedList {
-	
-	feeds: Feed[]=[];
-	
+
+	feeds: Feed[] = [];
+
 	constructor(private fs: FeedsService) { }
+
+	ngOnInit(): void {
+		this.getFeeds();
+		this.fs.onFeedAdded.subscribe(
+			(data: Feed) => this.feeds.push(data)
+		);
+	}
+
+	getFeeds(): void {
+		this.fs.getAll().subscribe({
+			next: (data) => {
+				this.feeds = data;
+			}
+		});
+	}
 }
