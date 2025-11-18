@@ -1,0 +1,55 @@
+<div class="submit-form p-4 border rounded-lg bg-light">
+    <div class="mb-4">
+        <label for="author" class="form-label fw-bold text-gray-700">Author:</label>
+        <input class="form-control form-control-lg border-primary focus:border-indigo-500" 
+               id="author" 
+               type="text" 
+               name="author" 
+               placeholder="Your Name or Username" 
+               required />
+    </div>
+
+    <div class="mb-4">
+        <label for="title" class="form-label fw-bold text-gray-700">Title:</label>
+        <input class="form-control form-control-lg border-primary focus:border-indigo-500" 
+               id="title" 
+               type="text" 
+               name="title" 
+               placeholder="A short title for your post" 
+               required />
+    </div>
+
+    <div class="mb-4">
+        <label for="details" class="form-label fw-bold text-gray-700">Post Details:</label>
+        <textarea class="form-control border-primary focus:border-indigo-500" 
+                  id="details" 
+                  name="details" 
+                  rows="4"
+                  placeholder="What's happening? Share thoughts, updates, or news here." 
+                  required></textarea>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3 mb-md-0">
+            <label for="date" class="form-label fw-bold text-gray-700">Date:</label>
+            <input class="form-control border-primary" 
+                   id="date" 
+                   type="date" 
+                   name="date" 
+                   required />
+        </div>
+
+        <div class="col-md-6">
+            <label for="time" class="form-label fw-bold text-gray-700">Time:</label>
+            <input class="form-control border-primary" 
+                   id="time" 
+                   type="time" 
+                   name="time" 
+                   required />
+        </div>
+    </div>
+    
+    <button class="btn btn-success btn-lg w-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+        Submit Feed Post
+    </button>
+</div>
