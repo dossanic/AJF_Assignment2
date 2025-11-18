@@ -1,5 +1,7 @@
-<ul class="list-group">
-<li class="list-group-item">Frank 21</li>
-<li class="list-group-item">Sam 20 </li>
-<li class="list-group-item">Sue 24</li>
-</ul>
+@for (feed of feeds; track feed.id) {
+{{ feed.title }}
+By: {{ feed.author }}
+{{ feed.details }}
+{{ feed.date }}
+{{ feed.time }}
+}

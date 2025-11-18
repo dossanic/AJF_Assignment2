@@ -9,6 +9,7 @@ import { FeedsService } from '../feeds-service';
   styleUrl: './feed-list.css',
 })
 export class FeedList {
+	
 	feeds: Feed[]=[];
 	
 	constructor(private fs: FeedsService) { }
