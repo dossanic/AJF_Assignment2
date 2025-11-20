@@ -1,7 +1,20 @@
-@for (feed of feeds; track feed.id) {
-By: {{ feed.author }}
-{{ feed.title }}
-{{ feed.details }}
-{{ feed.date }}
-{{ feed.time }}
-}
+<ul class="feed-list list-unstyled">
+    @for (feed of feeds; track feed.id) {
+    <li class="feed-item-card">
+        
+        <div class="card-header-line">
+            <strong class="feed-author">{{ feed.author }}</strong>
+            
+            <span class="feed-timestamp">
+                <i class="bi bi-calendar"></i> {{ feed.date }} 
+                <i class="bi bi-clock-fill"></i> {{ feed.time }}
+            </span>
+        </div>
+
+        <h5 class="feed-title">{{ feed.title }}</h5>
+        
+        <p class="feed-details">{{ feed.details }}</p>
+
+    </li>
+    }
+</ul>
