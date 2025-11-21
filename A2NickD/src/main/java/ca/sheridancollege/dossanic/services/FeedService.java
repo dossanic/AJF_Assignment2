@@ -9,13 +9,13 @@ import ca.sheridancollege.dossanic.domain.Feed;
 
 @Service
 public interface FeedService {
-	
+
 	public List<Feed> findAll();
 
 	public Optional<Feed> findById(Long id);
 
 	public Optional<Feed> findByTitle(String title);
-	
+
 	public void delete(Long id);
 
 	public Feed save(Feed feed);

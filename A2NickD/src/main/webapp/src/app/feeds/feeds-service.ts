@@ -11,22 +11,22 @@ const restUrl = 'api/v1/feed'
 
 export class FeedsService {
 	onFeedAdded = new EventEmitter<Feed>();
-	
+
 	constructor(private http: HttpClient) { }
 
 	getAll(): Observable<Feed[]> {
 		return this.http.get<Feed[]>(restUrl);
 	}
-	
+
 	create(data: any): Observable<any> {
 		return this.http.post(restUrl, data);
 	}
-	
+
 	delete(id: number): Observable<any> {
 		return this.http.delete(`${restUrl}/${id}`)
 	}
-	
-	update(feed: Feed): Observable<Feed>{
+
+	update(feed: Feed): Observable<Feed> {
 		return this.http.put<Feed>(`${restUrl}/${feed.id}`, feed);
 	}
 }

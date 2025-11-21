@@ -15,39 +15,39 @@ import ca.sheridancollege.dossanic.repositories.FeedRepository;
 public class FeedServiceImpl implements FeedService {
 	@Autowired
 	private FeedRepository fr;
-	
+
 	@Override
-	public List<Feed> findAll(){
+	public List<Feed> findAll() {
 		return fr.findAllByOrderByDateDescTimeDesc();
 	}
-	
+
 	@Override
-	public Optional<Feed> findById(Long id){
+	public Optional<Feed> findById(Long id) {
 		return fr.findById(id);
 	}
-	
+
 	@Override
-	public Optional<Feed> findByTitle(String title){
+	public Optional<Feed> findByTitle(String title) {
 		return fr.findByTitle(title);
 	}
-	
+
 	@Override
 	public void delete(Long id) {
 		fr.deleteById(id);
 	}
-	
+
 	@Override
 	public Feed save(Feed feed) {
 		if (feed.getId() == null) {
-			
-			if(feed.getDate() == null) {
+
+			if (feed.getDate() == null) {
 				feed.setDate(LocalDate.now());
 			}
-			if(feed.getTime() == null) {
-				feed.setTime(LocalTime.now());	
+			if (feed.getTime() == null) {
+				feed.setTime(LocalTime.now());
 			}
 		}
-		
+
 		return fr.save(feed);
-	}	
+	}
 }

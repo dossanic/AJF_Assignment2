@@ -41,17 +41,17 @@ export class FeedList {
 			}
 		});
 	}
-	
-	startEdit(id: number | undefined): void{
-		if(id){
+
+	startEdit(id: number | undefined): void {
+		if (id) {
 			this.editingId = id;
 		}
 	}
-	
-	cancelEdit(): void{
+
+	cancelEdit(): void {
 		this.editingId = null;
 	}
-	
+
 	saveEdit(feed: Feed): void {
 		this.fs.update(feed).subscribe({
 			next: (updatedFeed) => {

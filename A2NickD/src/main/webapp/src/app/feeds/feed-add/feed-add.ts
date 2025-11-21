@@ -17,8 +17,8 @@ export class FeedAdd {
 		author: '',
 		title: '',
 		details: '',
-//		time: '',
-//		date: ''
+		//		time: '',
+		//		date: ''
 	};
 
 	saveFeedPost(): void {
@@ -26,19 +26,19 @@ export class FeedAdd {
 			author: this.feed.author,
 			title: this.feed.title,
 			details: this.feed.details,
-//			time: this.feed.time,
-//			date: this.feed.date
+			//			time: this.feed.time,
+			//			date: this.feed.date
 		};
 		this.fs.create(data).subscribe(
 			(data: Feed) => {
 				this.fs.onFeedAdded.emit(data);
-				
+
 				this.feed.author = '';
 				this.feed.title = '';
 				this.feed.details = '';
-//				this.feed.time = '';
-//				this.feed.date = '';
-				
+				//				this.feed.time = '';
+				//				this.feed.date = '';
+
 			}
 
 		);

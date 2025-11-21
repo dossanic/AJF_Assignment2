@@ -24,14 +24,14 @@ public class Feed {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NonNull
 	private String author;
 	@NonNull
 	private String title;
 	@NonNull
 	private String details;
-	
+
 	@JsonFormat(pattern = "hh:mm a")
 	private LocalTime time;
 	@JsonFormat(pattern = "MMM dd, yyyy")
