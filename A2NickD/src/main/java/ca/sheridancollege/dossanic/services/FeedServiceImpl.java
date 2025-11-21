@@ -1,5 +1,7 @@
 package ca.sheridancollege.dossanic.services;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +33,16 @@ public class FeedServiceImpl implements FeedService {
 	
 	@Override
 	public Feed save(Feed feed) {
+		if (feed.getId() == null) {
+			
+			if(feed.getDate() == null) {
+				feed.setDate(LocalDate.now());
+			}
+			if(feed.getTime() == null) {
+				feed.setTime(LocalTime.now());	
+			}
+		}
+		
 		return fr.save(feed);
 	}	
 }

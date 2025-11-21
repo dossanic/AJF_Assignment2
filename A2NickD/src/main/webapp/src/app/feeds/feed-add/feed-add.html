@@ -32,29 +32,10 @@
                   required></textarea>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-md-6 mb-3 mb-md-0">
-            <label for="date" class="form-label fw-bold text-gray-700">Date:</label>
-            <input class="form-control border-primary" 
-                   id="date" 
-                   type="date" 
-                   name="date"
-                   [(ngModel)]="feed.date"  
-                   required />
-        </div>
-
-        <div class="col-md-6">
-            <label for="time" class="form-label fw-bold text-gray-700">Time:</label>
-            <input class="form-control border-primary" 
-                   id="time" 
-                   type="time" 
-                   name="time"
-                   [(ngModel)]="feed.time"  
-                   required />
-        </div>
     </div>
     
-    <button class="btn btn-success btn-lg w-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" click="saveFeedPost()">
+<div>
+    <button class="btn btn-success btn-lg w-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" (click)="saveFeedPost()">
         Submit Feed Post
     </button>
 </div>

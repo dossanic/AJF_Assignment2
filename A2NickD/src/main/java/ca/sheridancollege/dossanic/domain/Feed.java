@@ -31,9 +31,9 @@ public class Feed {
 	private String title;
 	@NonNull
 	private String details;
-	@NonNull
+	
+	@JsonFormat(pattern = "hh:mm a")
 	private LocalTime time;
-	@NonNull
+	@JsonFormat(pattern = "MMM dd, yyyy")
 	private LocalDate date;
-
 }
