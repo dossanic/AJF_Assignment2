@@ -1,5 +1,6 @@
 package ca.sheridancollege.dossanic.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,4 +12,6 @@ import ca.sheridancollege.dossanic.domain.Feed;
 public interface FeedRepository extends JpaRepository<Feed, Long> {
 	
 	public Optional<Feed> findByTitle(String title);
+	
+	public List<Feed> findAllByOrderByDateDescTimeDesc();
 }

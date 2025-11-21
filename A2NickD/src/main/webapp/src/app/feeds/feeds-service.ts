@@ -21,4 +21,8 @@ export class FeedsService {
 	create(data: any): Observable<any> {
 		return this.http.post(restUrl, data);
 	}
+	
+	delete(id: number): Observable<any> {
+		return this.http.delete(`${restUrl}/${id}`)
+	}
 }

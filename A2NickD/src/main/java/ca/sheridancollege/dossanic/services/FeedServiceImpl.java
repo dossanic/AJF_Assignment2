@@ -18,7 +18,7 @@ public class FeedServiceImpl implements FeedService {
 	
 	@Override
 	public List<Feed> findAll(){
-		return fr.findAll();
+		return fr.findAllByOrderByDateDescTimeDesc();
 	}
 	
 	@Override
@@ -29,6 +29,11 @@ public class FeedServiceImpl implements FeedService {
 	@Override
 	public Optional<Feed> findByTitle(String title){
 		return fr.findByTitle(title);
+	}
+	
+	@Override
+	public void delete(Long id) {
+		fr.deleteById(id);
 	}
 	
 	@Override

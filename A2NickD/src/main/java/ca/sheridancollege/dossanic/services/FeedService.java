@@ -15,6 +15,8 @@ public interface FeedService {
 	public Optional<Feed> findById(Long id);
 
 	public Optional<Feed> findByTitle(String title);
+	
+	public void delete(Long id);
 
 	public Feed save(Feed feed);
 }
