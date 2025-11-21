@@ -20,7 +20,7 @@ export class FeedList {
 	ngOnInit(): void {
 		this.getFeeds();
 		this.fs.onFeedAdded.subscribe(
-			(data: Feed) => this.feeds.push(data)
+			(data: Feed) => this.feeds.unshift(data)	//used unshift instead of push because push adds the new item to the bottom of the list instead of the top.
 		);
 	}
 

@@ -20,34 +20,31 @@ public class FeedBootstrap implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Feed f1 = new Feed(
-				"Alice Smith", 
-				"Article",
-				"Shared a great article on microservices architecture. <link>"
+				"Product Team - Ringo Starr", 
+				"Q3 Project Fusion Deployed!",
+				"The backend team successfully moved all legacy services to Kubernetes on time! Zero downtime migration. See Slack channel #fusion-success for details."
 				);
 		f1.setTime(LocalTime.of(10, 30));
 		f1.setDate(LocalDate.of(2025, 11, 15));
-//				LocalTime.of(10, 30), // 10:30 AM
-//				LocalDate.of(2025, 11, 15) // November 15, 2025
+
 		
 		Feed f2 = new Feed(
-				"Bob Johnson", 
-				"Spring Security Question",
-				"Asked a question about Spring Security configuration."
+				"R&D Department - Paul McCartney", 
+				"AI Ethics Workshop Recap",
+				"We're hosting a follow-up session next week to discuss ethical guidelines for our new generative AI model. Check your calendar invite. Highly encouraged attendance for all developers."
 				);
-		f2.setTime(LocalTime.of(14, 0));
-		f2.setDate(LocalDate.now());
-//				LocalTime.of(14, 0), // 2:00 PM
-//				LocalDate.now() // Today's date
+		f2.setTime(LocalTime.of(1, 30));
+		f2.setDate(LocalDate.of(2025, 10, 31));
+
 
 		Feed f3 = new Feed(
-				"Charlie Brown",
-				"CSS Tutorial Link",
-				"Posted a link to a new CSS framework tutorial. <link>"
+				"Dev Ops Lead - Scooby Doo",
+				"New CI/CD Pipeline Docs Available",
+				"We've implemented a new security scanning stage in our pipeline. All project teams need to update their YAML files by end of the week. Full documentation is attached to this post. <link>"
 				);
 		f3.setTime(LocalTime.of(19, 45));
 		f3.setDate(LocalDate.of(2025, 11, 14));
-//				LocalTime.of(19, 45), // 7:45 PM
-//				LocalDate.of(2025, 11, 14) // November 14, 2025
+
 		
 		fs.save(f1);
 		fs.save(f2);
