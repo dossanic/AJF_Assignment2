@@ -1,20 +1,21 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { Feed } from '../feed';
 import { FeedsService } from '../feeds-service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-feed-list',
-	imports: [FormsModule, CommonModule],
+	imports: [FormsModule],
 	templateUrl: './feed-list.html',
 	styleUrl: './feed-list.css',
+	standalone: true,
 })
-export class FeedList implements OnInit {
+export class FeedList {
 
 	feeds: Feed[] = [];
+	editingId: number | null = null;
 
-	constructor(private fs: FeedsService, private cdr: ChangeDetectorRef) { }
+	constructor(private fs: FeedsService) { }
 
 	ngOnInit(): void {
 		this.getFeeds();
@@ -30,22 +31,37 @@ export class FeedList implements OnInit {
 			}
 		});
 	}
-	
-	deleteFeed(id: number | undefined): void{
+
+	deleteFeed(id: number | undefined): void {
 		if (!id) return;
-		
+
 		this.fs.delete(id).subscribe({
 			next: () => {
-				this.feeds = this.feeds.filter(f => f.id !== id);
-				console.log(`Successful post deletion: ${id}`);
-				
-				this.cdr.markForCheck();
-				this.cdr.detectChanges()
-				//window.location.reload();
-				},
-				error: (err) => {
-					console.error('Failed to delete post:', err);
-				}
+				this.getFeeds();
+			}
 		});
 	}
+	
+	startEdit(id: number | undefined): void{
+		if(id){
+			this.editingId = id;
+		}
+	}
+	
+	cancelEdit(): void{
+		this.editingId = null;
+	}
+	
+	saveEdit(feed: Feed): void {
+		this.fs.update(feed).subscribe({
+			next: (updatedFeed) => {
+				const index = this.feeds.findIndex(f => f.id === updatedFeed.id)
+				if (index !== -1) {
+					this.feeds[index] = updatedFeed;
+				}
+				this.editingId = null;
+			}
+		});
+	}
+
 }

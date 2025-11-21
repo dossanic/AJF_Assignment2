@@ -25,4 +25,8 @@ export class FeedsService {
 	delete(id: number): Observable<any> {
 		return this.http.delete(`${restUrl}/${id}`)
 	}
+	
+	update(feed: Feed): Observable<Feed>{
+		return this.http.put<Feed>(`${restUrl}/${feed.id}`, feed);
+	}
 }

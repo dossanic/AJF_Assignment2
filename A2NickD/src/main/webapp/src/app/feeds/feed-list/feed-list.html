@@ -1,7 +1,23 @@
 <ul class="feed-list list-unstyled">
     @for (feed of feeds; track feed.id) {
     <li class="feed-item-card">
-        
+        @if (editingId === feed.id){
+        <div class="edit-form p-3 border rounded">
+                <h5 class="fw-bold">Editing Post by {{ feed.author }}</h5>
+                
+                <label class="form-label mt-2">Title:</label>
+                <input [(ngModel)]="feed.title" class="form-control mb-2" required />
+                
+                <label class="form-label">Details:</label>
+                <textarea [(ngModel)]="feed.details" class="form-control mb-3" rows="3" required></textarea>
+                
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-success btn-sm me-2" (click)="saveEdit(feed)">Save</button>
+                    <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">Cancel</button>
+                </div>
+            </div>
+            
+		} @else {
         <div class="card-header-line">
             <strong class="feed-author">{{ feed.author }}</strong>
             
@@ -16,9 +32,10 @@
         <p class="feed-details">{{ feed.details }}</p>
         
         <div class="actions">
+        	<button class="btn btn-primary btn-sm me-2" (click)="startEdit(feed.id)">Edit</button>
         	<button class="btn btn-danger btn-sm" (click)="deleteFeed(feed.id)">Delete</button>
         </div>
-
+		}
     </li>
     }
 </ul>
