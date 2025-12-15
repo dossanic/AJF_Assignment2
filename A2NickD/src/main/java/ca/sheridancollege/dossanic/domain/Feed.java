@@ -3,6 +3,8 @@ package ca.sheridancollege.dossanic.domain;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,16 +24,16 @@ public class Feed {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NonNull
 	private String author;
 	@NonNull
 	private String title;
 	@NonNull
 	private String details;
-	@NonNull
-	private LocalTime time;
-	@NonNull
-	private LocalDate date;
 
+	@JsonFormat(pattern = "hh:mm a")
+	private LocalTime time;
+	@JsonFormat(pattern = "MMM dd, yyyy")
+	private LocalDate date;
 }

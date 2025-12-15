@@ -4,8 +4,9 @@
         <input class="form-control form-control-lg border-primary focus:border-indigo-500" 
                id="author" 
                type="text" 
-               name="author" 
-               placeholder="Your Name or Username" 
+               name="author"
+               [(ngModel)]="feed.author" 
+               placeholder="Department - Name" 
                required />
     </div>
 
@@ -15,7 +16,8 @@
                id="title" 
                type="text" 
                name="title" 
-               placeholder="A short title for your post" 
+               [(ngModel)]="feed.title" 
+               placeholder="Title for your post" 
                required />
     </div>
 
@@ -23,33 +25,17 @@
         <label for="details" class="form-label fw-bold text-gray-700">Post Details:</label>
         <textarea class="form-control border-primary focus:border-indigo-500" 
                   id="details" 
-                  name="details" 
+                  name="details"
+                  [(ngModel)]="feed.details"  
                   rows="4"
                   placeholder="What's happening? Share thoughts, updates, or news here." 
                   required></textarea>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-md-6 mb-3 mb-md-0">
-            <label for="date" class="form-label fw-bold text-gray-700">Date:</label>
-            <input class="form-control border-primary" 
-                   id="date" 
-                   type="date" 
-                   name="date" 
-                   required />
-        </div>
-
-        <div class="col-md-6">
-            <label for="time" class="form-label fw-bold text-gray-700">Time:</label>
-            <input class="form-control border-primary" 
-                   id="time" 
-                   type="time" 
-                   name="time" 
-                   required />
-        </div>
     </div>
     
-    <button class="btn btn-success btn-lg w-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+<div>
+    <button class="btn btn-success btn-lg w-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg" (click)="saveFeedPost()">
         Submit Feed Post
     </button>
 </div>
